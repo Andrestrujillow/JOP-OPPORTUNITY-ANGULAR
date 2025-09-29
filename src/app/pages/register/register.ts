@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './register.html',
-  styleUrls: ['./register.css']
+  styleUrl: './register.css'
 })
 export class RegisterComponent {
   registerForm: FormGroup;
   showPassword = false;
   successMessage = '';
   errorMessage = '';
+
+  @Output() readonly switchView = new EventEmitter<'login' | 'register'>();
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.registerForm = this.fb.group({
@@ -34,6 +36,11 @@ export class RegisterComponent {
     this.registerForm.get('type')?.setValue(type);
   }
 
+  onSwitch(view: 'login' | 'register', event?: Event): void {
+    event?.preventDefault();
+    this.switchView.emit(view);
+  }
+
   onSubmit(): void {
     this.successMessage = '';
     this.errorMessage = '';
@@ -42,7 +49,6 @@ export class RegisterComponent {
       this.auth.register(user).subscribe({
         next: () => {
           this.successMessage = 'Registro exitoso. Redirigiendo a iniciar sesión...';
-          // navegar a login tras pequeño delay para que el usuario vea el mensaje
           setTimeout(() => this.router.navigate(['/login']), 800);
         },
         error: (err: any) => {

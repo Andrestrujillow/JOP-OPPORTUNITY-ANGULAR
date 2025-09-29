@@ -1,0 +1,106 @@
+
+<div class="auth-page">
+	<div class="auth-layout">
+		<aside class="auth-aside">
+			<div class="auth-aside__inner">
+				<span class="auth-aside__badge">Tu portal de empleo</span>
+				<h2>Conecta con oportunidades reales</h2>
+				<p>
+					Gestiona postulaciones, recibe alertas personalizadas y muestra tu perfil profesional a empresas que buscan talento como el tuyo.
+				</p>
+				<ul class="auth-aside__list">
+					<li><i class="fas fa-check"></i> Seguimiento en tiempo real a tus postulaciones</li>
+					<li><i class="fas fa-check"></i> Recomendaciones basadas en tu perfil</li>
+					<li><i class="fas fa-check"></i> Recursos para impulsar tu próxima entrevista</li>
+				</ul>
+				<div class="auth-aside__stats">
+					<div>
+						<span class="stat-value">+1.2k</span>
+						<span class="stat-label">Vacantes activas</span>
+					</div>
+					<div>
+						<span class="stat-value">94%</span>
+						<span class="stat-label">Usuarios satisfechos</span>
+					</div>
+				</div>
+			</div>
+		</aside>
+		<div class="auth-card">
+			<header class="auth-card__header">
+				<div class="auth-card__brand">
+					<i class="fas fa-briefcase"></i>
+					<span>Job Opportunity</span>
+				</div>
+				<h1>Bienvenido de vuelta</h1>
+				<p>Inicia sesión con tu cuenta o continúa con Apple y Google</p>
+			</header>
+			<section class="auth-card__body">
+				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+					<div *ngIf="errorMessage" class="alert alert--error">{{ errorMessage }}</div>
+					<div class="social-buttons">
+						<button type="button" class="social-button">
+							<span class="social-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+										fill="currentColor"
+									/>
+								</svg>
+							</span>
+							Inicia sesión con Apple
+						</button>
+						<button type="button" class="social-button">
+							<span class="social-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+										fill="currentColor"
+									/>
+							</svg>
+						</span>
+							Inicia sesión con Google
+						</button>
+					</div>
+					<div class="divider" role="presentation">
+						<span>O continúa con tu correo</span>
+					</div>
+					<div class="form-grid">
+						<label class="form-field">
+							<span class="form-label">Correo electrónico</span>
+							<input
+								type="email"
+								id="emailInput"
+								formControlName="email"
+								placeholder="m@ejemplo.com"
+								autocomplete="email"
+								class="form-input"
+							/>
+						</label>
+						<div class="form-field">
+							<div class="form-label-group">
+								<span class="form-label">Contraseña</span>
+								<a href="#" class="form-link">¿Olvidaste tu contraseña?</a>
+							</div>
+							<div class="password-field">
+								<input
+									[type]="showPassword ? 'text' : 'password'"
+									id="passwordInput"
+									formControlName="password"
+									placeholder="••••••••"
+									autocomplete="current-password"
+									class="form-input"
+								/>
+								<button type="button" class="password-toggle" (click)="togglePassword()" aria-label="Mostrar u ocultar contraseña">
+									<i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="primary-button">Iniciar sesión</button>
+					<p class="auth-card__footer">¿No tienes una cuenta? <a href="#" (click)="onSwitch('register', $event)">Regístrate</a></p>
+				</form>
+			</section>
+		</div>
+	</div>
+	<p class="auth-legal">Al continuar aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Aviso de privacidad</a>.</p>
+</div>

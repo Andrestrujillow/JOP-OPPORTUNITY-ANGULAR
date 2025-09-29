@@ -19,16 +19,9 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<ng-container *ngIf="show === 'login'">
-	<app-login></app-login>
-	<div style="text-align:center; margin-top: 1rem;">
-		<button (click)="show = 'register'" class="btn btn-secondary">Registrarse</button>
-	</div>
-</ng-container>
-
-<ng-container *ngIf="show === 'register'">
-	<app-register></app-register>
-	<div style="text-align:center; margin-top: 1rem;">
-		<button (click)="show = 'login'" class="btn btn-secondary">Volver a iniciar sesión</button>
-	</div>
-</ng-container>
+<div class="app-frame" [ngClass]="'view-' + show">
+	<section class="app-frame__view" role="region" aria-live="polite">
+		<app-login *ngIf="show === 'login'" (switchView)="show = $event"></app-login>
+		<app-register *ngIf="show === 'register'" (switchView)="show = $event"></app-register>
+	</section>
+</div>

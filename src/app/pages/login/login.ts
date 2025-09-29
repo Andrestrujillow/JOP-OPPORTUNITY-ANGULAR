@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -9,12 +9,14 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  styleUrl: './login.css'
 })
 export class LoginComponent {
   loginForm: FormGroup;
   showPassword = false;
   errorMessage = '';
+
+  @Output() readonly switchView = new EventEmitter<'login' | 'register'>();
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -25,6 +27,11 @@ export class LoginComponent {
 
   togglePassword(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  onSwitch(view: 'login' | 'register', event?: Event): void {
+    event?.preventDefault();
+    this.switchView.emit(view);
   }
 
   onSubmit(): void {
