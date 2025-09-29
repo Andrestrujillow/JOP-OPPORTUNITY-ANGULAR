@@ -1,0 +1,73 @@
+
+<div class="max-w-md mx-auto mt-12">
+	<div class="card-enhanced p-8 hover-lift">
+		<div class="text-center mb-8">
+			<div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+				<i class="fas fa-lock text-2xl text-white"></i>
+			</div>
+			<h1 class="text-3xl font-bold text-gray-800 mb-2">Iniciar Sesión</h1>
+			<p class="text-gray-600">Accede a tu cuenta para continuar</p>
+		</div>
+
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div *ngIf="errorMessage" class="mb-4 p-3 rounded bg-red-100 text-red-800 text-center">{{ errorMessage }}</div>
+
+			<!-- Email -->
+			<div class="mb-6">
+				<label for="emailInput" class="block text-gray-700 font-medium mb-2 flex items-center">
+					<i class="fas fa-envelope mr-2 text-blue-500"></i>
+					Correo Electrónico
+				</label>
+				<div class="relative">
+					<input
+						type="email"
+						id="emailInput"
+						formControlName="email"
+						placeholder="ejemplo@correo.com"
+						class="w-full border-2 border-gray-200 rounded-xl py-4 pl-12 pr-4 text-gray-800 placeholder-gray-400"
+					/>
+					<div class="absolute top-4 left-4 text-gray-400">
+						<i class="fas fa-at"></i>
+					</div>
+				</div>
+			</div>
+
+			<!-- Password with toggle -->
+			<div class="mb-8">
+				<label for="passwordInput" class="block text-gray-700 font-medium mb-2 flex items-center">
+					<i class="fas fa-key mr-2 text-blue-500"></i>
+					Contraseña
+				</label>
+				<div class="relative">
+					<input
+						[type]="showPassword ? 'text' : 'password'"
+						id="passwordInput"
+						formControlName="password"
+						placeholder="********"
+						class="w-full border-2 border-gray-200 rounded-xl py-4 pl-12 pr-12 text-gray-800 placeholder-gray-400"
+					/>
+					<div class="absolute top-4 left-4 text-gray-400">
+						<i class="fas fa-lock"></i>
+					</div>
+					<button type="button" class="absolute right-4 top-4 text-gray-400 hover:text-blue-600 focus:outline-none" (click)="togglePassword()" aria-label="Mostrar u ocultar contraseña">
+						<i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+					</button>
+				</div>
+			</div>
+
+			<button
+				type="submit"
+				class="w-full btn-primary text-white font-semibold py-4 rounded-xl shadow-soft focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 hover-lift mb-6"
+			>
+				<i class="fas fa-sign-in-alt mr-2"></i>
+				INICIAR SESIÓN
+			</button>
+
+			<div class="text-center space-y-3">
+				<a class="block text-blue-600 hover:text-blue-700 text-sm transition-colors" href="#">¿Olvidaste tu contraseña?</a>
+				<div class="divider-gradient my-4"></div>
+				<p class="text-gray-600">¿No tienes cuenta? <a routerLink="/register" class="text-blue-600 hover:text-blue-700 font-medium">Regístrate aquí</a></p>
+			</div>
+		</form>
+	</div>
+</div>
