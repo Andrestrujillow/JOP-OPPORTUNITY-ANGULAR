@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Texto por defecto oscuro (tarjeta derecha) y enlaces en azul */
 :host {
+	color: #0b1220;
 	display: block;
 	font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .auth-page {
 	min-height: 100vh;
-	background: linear-gradient(145deg, #eef2ff 0%, #f8fafc 50%, #f1f5f9 100%);
+	background: url('https://i.pinimg.com/1200x/f0/e4/ab/f0e4abce10532cb8fd7943db5ff2bd40.jpg')
+		no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -26,10 +31,12 @@
 	box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
 	border: 1px solid rgba(15, 23, 42, 0.05);
 	overflow: hidden;
+	color: #374151; /* texto por defecto en gris oscuro */
 }
 
 .auth-aside {
-	background: radial-gradient(circle at top, rgba(12, 74, 110, 0.4), transparent 60%), linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #020617 110%);
+	background: radial-gradient(circle at top, rgba(12, 74, 110, 0.4), transparent 60%),
+		linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #020617 110%);
 	color: #f8fafc;
 	display: flex;
 	align-items: stretch;
@@ -58,7 +65,7 @@
 .auth-aside__badge {
 	align-self: flex-start;
 	background: rgba(148, 163, 184, 0.2);
-	color: #e0f2fe;
+	color: #ffffff;
 	padding: 6px 14px;
 	border-radius: 999px;
 	font-size: 0.8rem;
@@ -71,14 +78,15 @@
 	font-size: clamp(1.9rem, 2.2vw, 2.4rem);
 	line-height: 1.1;
 	margin: 0;
-	color: #f8fafc;
+	color: #ffffff;
+	font-weight: 700;
 }
 
 .auth-aside__inner p {
 	margin: 0;
 	font-size: 1rem;
 	line-height: 1.6;
-	color: rgba(226, 232, 240, 0.88);
+	color: rgba(255, 255, 255, 0.92);
 }
 
 .auth-aside__list {
@@ -94,6 +102,8 @@
 	align-items: center;
 	gap: 10px;
 	font-size: 0.95rem;
+	color: #f1f5f9;
+	font-weight: 500;
 }
 
 .auth-aside__list i {
@@ -120,16 +130,17 @@
 .stat-value {
 	font-size: 1.6rem;
 	font-weight: 700;
-	color: #f8fafc;
+	color: #ffffff;
 }
 
 .stat-label {
 	font-size: 0.85rem;
-	color: rgba(226, 232, 240, 0.78);
+	color: rgba(255, 255, 255, 0.8);
 }
 
 .auth-card {
 	background: #ffffff;
+	color: #0b1220;
 	padding: clamp(40px, 5vw, 72px);
 	display: flex;
 	flex-direction: column;
@@ -149,7 +160,7 @@
 	align-items: center;
 	gap: 8px;
 	font-weight: 600;
-	color: #0f172a;
+	color: #ffffff;
 	font-size: 0.95rem;
 }
 
@@ -163,15 +174,14 @@
 
 .auth-card__header h1 {
 	font-size: clamp(1.75rem, 2vw, 2.1rem);
-	font-weight: 600;
-	color: #0f172a;
+	font-weight: 700;
+	color: #071022; /* título principal */
 	margin: 0;
 }
 
-
 .auth-card__header p {
 	font-size: 1rem;
-	color: #4b5563;
+	color: #475569; /* subtítulo / descripción */
 	margin: 0 0 8px 0;
 }
 
@@ -210,7 +220,7 @@
 	padding: 12px;
 	font-size: 0.92rem;
 	font-weight: 500;
-	color: #111827;
+	color: #374151;
 	cursor: pointer;
 	transition: border-color 0.16s ease, box-shadow 0.16s ease;
 }
@@ -230,31 +240,47 @@
 	color: #111827;
 }
 
-
+/* Divider central - estilo igual a la foto 2 */
 .divider {
-	position: relative;
-	margin: 24px 0;
-	text-align: center;
-	color: #9ca3af;
-	font-size: 0.85rem;
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    z-index: 1;
 }
 
 .divider::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	height: 1px;
-	background: #e5e7eb;
-	z-index: 0;
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px; /* línea más visible */
+    background: rgba(255, 255, 255, 0.65); /* línea clara como en la imagen */
+    border-radius: 2px;
+    z-index: 0;
+    box-shadow: 0 2px 6px rgba(2,6,23,0.06);
 }
 
 .divider span {
-	background: #ffffff;
-	padding: 0 12px;
-	position: relative;
-	z-index: 1;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.96); /* badge claro */
+    color: #071022; /* texto oscuro legible */
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.86rem;
+    border: 1px solid rgba(11,17,32,0.06);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+}
+
+/* Ajustes móviles */
+@media (max-width: 420px) {
+    .divider::before { left: 8px; right: 8px; height: 1px; }
+    .divider span { padding: 5px 10px; font-size: 0.8rem; }
 }
 
 .form-grid {
@@ -272,7 +298,7 @@
 .form-label {
 	font-size: 0.9rem;
 	font-weight: 500;
-	color: #111827;
+	color: #374151;
 }
 
 .form-label-group {
@@ -283,30 +309,37 @@
 
 .form-link {
 	font-size: 0.85rem;
-	color: #4f46e5;
+	color: #2563eb;
 	text-decoration: none;
 	transition: color 0.16s ease;
 }
 
 .form-link:hover {
-	color: #312e81;
+	color: #1e40af;
+	text-decoration: underline;
 }
 
 .form-input {
 	border-radius: 12px;
-	border: 1px solid #d1d5db;
+	border: 1px solid rgba(255, 255, 255, 0.4);
 	padding: 14px 16px;
 	font-size: 0.95rem;
-	color: #111827;
+	color: #374151; /* texto dentro del input en gris oscuro */
 	outline: none;
 	transition: border-color 0.16s ease, box-shadow 0.16s ease;
 	width: 100%;
 	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.35);
+	font-weight: 500;
 }
 
 .form-input:focus {
 	border-color: #4f46e5;
-	box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+	box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+}
+
+.form-input::placeholder {
+	color: #94a3b8; /* placeholder gris claro */
 }
 
 .password-field {
@@ -320,13 +353,13 @@
 	transform: translateY(-50%);
 	border: none;
 	background: transparent;
-	color: #6b7280;
+	color: #f9fafb;
 	cursor: pointer;
 	padding: 0;
 }
 
 .password-toggle:hover {
-	color: #4f46e5;
+	color: #c7d2fe;
 }
 
 .primary-button {
@@ -335,18 +368,23 @@
 	border-radius: 12px;
 	padding: 16px 18px;
 	font-size: 1rem;
-	font-weight: 600;
-	color: #ffffff;
-	background: linear-gradient(120deg, #0f172a, #6366f1);
+	font-weight: 700;
+	color: #374151;
+	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 18px 40px rgba(99, 102, 241, 0.22);
 	cursor: pointer;
 	transition: transform 0.16s ease, box-shadow 0.16s ease;
 	margin-top: 12px;
+	border: 1px solid rgba(11, 17, 32, 0.06);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 }
 
 .primary-button:hover {
 	transform: translateY(-1px);
 	box-shadow: 0 18px 34px rgba(15, 23, 42, 0.2);
+	background: rgba(255, 255, 255, 0.35);
+	color: #ffffff;
 }
 
 .primary-button:active {
@@ -357,22 +395,22 @@
 	margin-top: 24px;
 	text-align: center;
 	font-size: 0.95rem;
-	color: #4b5563;
+	color: #374151; /* gris oscuro */
 }
 
 .auth-card__footer a {
-	color: #0f172a;
+	color: #2563eb;
 	font-weight: 600;
 	text-decoration: none;
 }
 
 .auth-card__footer a:hover {
-	text-decoration: underline;
+	color: #1e40af;
 }
 
 .auth-legal {
 	font-size: 0.8rem;
-	color: #6b7280;
+	color: #374151; /* gris oscuro */
 	text-align: center;
 	max-width: 640px;
 }
@@ -426,3 +464,81 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* === GLASSMORPHISM OVERRIDES (texto en gris oscuro) === */
+.auth-layout {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    color: #374151; /* texto por defecto en gris oscuro */
+}
+
+.auth-aside {
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    /* mantener textos del aside legibles (blanco suave) */
+    color: rgba(248,250,252,0.95);
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    color: #374151; /* texto principal gris oscuro */
+}
+
+/* títulos y subtítulos */
+.auth-card__header h1 { color: #0f1724; }
+.auth-card__header p { color: #475569; }
+
+/* etiquetas y ayudas */
+.form-label,
+.form-hint { color: #4b5563; }
+
+/* inputs: texto gris oscuro y placeholder más claro */
+.form-input {
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #374151; /* texto dentro del input en gris oscuro */
+}
+
+.form-input::placeholder {
+    color: #94a3b8; /* placeholder gris claro */
+}
+
+/* botones y sociales con texto gris oscuro (links siguen azules) */
+.primary-button {
+    background: rgba(255, 255, 255, 0.25);
+    color: #374151;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-weight: 700;
+}
+
+.social-button {
+    color: #374151;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.92);
+}
+
+/* footer y aviso legal en gris oscuro */
+.auth-card__footer { color: #374151; }
+.auth-legal { color: #374151; }
+
+/* conservar enlaces en azul para acciones */
+.form-link,
+.auth-card__footer a,
+.auth-legal a {
+    color: #15379e;
+    font-weight: 600;
+}
+.form-link:hover,
+.auth-card__footer a:hover,
+.auth-legal a:hover { color: #0835da; }

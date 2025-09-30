@@ -12,6 +12,9 @@ body {
 	flex-direction: column;
 }
 
+/* optional subtle dark overlay so glass card stands out */
+/* removed global overlay to keep original page background */
+
 app-root {
 	flex: 1;
 	display: block;
