@@ -19,9 +19,30 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<div class="app-frame" [ngClass]="'view-' + show">
-	<section class="app-frame__view" role="region" aria-live="polite">
-		<app-login *ngIf="show === 'login'" (switchView)="show = $event"></app-login>
-		<app-register *ngIf="show === 'register'" (switchView)="show = $event"></app-register>
-	</section>
+<div class="app-shell">
+	<header class="app-shell__header" *ngIf="show === 'landing'">
+		<button type="button" class="brand" (click)="setView('landing')" aria-label="Ir al inicio">
+			<span class="brand__mark">Job Opportunity</span>
+		</button>
+		<nav class="shell-nav" aria-label="Navegación principal">
+			<button type="button" class="shell-nav__link is-active" (click)="setView('landing')">
+				Inicio
+			</button>
+			<button type="button" class="shell-nav__link" (click)="setView('login')">
+				Ingresar
+			</button>
+			<button type="button" class="shell-nav__cta" (click)="setView('register')">
+				Crear cuenta
+			</button>
+		</nav>
+	</header>
+	<main class="app-shell__content" [class.app-shell__content--auth]="show !== 'landing'" role="main" aria-live="polite">
+		<app-landing *ngIf="show === 'landing'" (switchView)="setView($event)"></app-landing>
+		<div *ngIf="show === 'login'" class="auth-wrapper">
+			<app-login (switchView)="setView($event)"></app-login>
+		</div>
+		<div *ngIf="show === 'register'" class="auth-wrapper">
+			<app-register (switchView)="setView($event)"></app-register>
+		</div>
+	</main>
 </div>

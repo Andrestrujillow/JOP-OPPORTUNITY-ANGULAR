@@ -1,0 +1,191 @@
+<section class="landing" id="hero">
+	<div class="hero">
+		<div class="hero__content">
+			<span class="hero__badge">Job Opportunity · Popayán, Cauca</span>
+			<h1>La red digital que impulsa el talento y el empleo en Popayán</h1>
+			<p>
+				Creamos una plataforma que conecta a personas cesantes con empresas y microempresas locales, ofreciendo las
+				herramientas para postular, capacitarse y tomar decisiones informadas en un mismo lugar.
+			</p>
+			<ul class="hero__list">
+				<li>Objetivo general: habilitar encuentros laborales justos, accesibles y con oportunidades reales.</li>
+				<li>Alcance inicial: Popayán con proyección a una red nacional de oportunidades.</li>
+			</ul>
+			<div class="hero__actions">
+				<button type="button" class="button button--primary" (click)="onGetStarted()">Explorar oportunidades</button>
+				<button type="button" class="button button--ghost" (click)="onSignIn()">Acceder como empresa</button>
+			</div>
+		</div>
+		<div class="hero__preview">
+			<div class="preview-card">
+				<span>Necesidad que atendemos</span>
+				<strong>El desempleo en Popayán requiere respuestas ágiles que unan talento y vacantes locales.</strong>
+			</div>
+			<div class="preview-card preview-card--alt">
+				<span>Nuestra propuesta</span>
+				<strong>Un sistema de información accesible, escalable y listo para acompañar a cada usuario.</strong>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="parallax parallax--popayan-lake" aria-hidden="true"></section>
+
+<section class="features" id="features">
+	<header class="section-heading">
+		<span>¿Cómo respondemos al desafío?</span>
+		<h2>Servicios pensados para revitalizar la empleabilidad en Popayán</h2>
+		<p>
+			El proyecto une a buscadores de empleo y organizaciones mediante módulos colaborativos que cuidan la seguridad de datos,
+			simplifican trámites y acompañan el crecimiento profesional.
+		</p>
+	</header>
+	<div class="features__grid">
+		<article class="feature" *ngFor="let highlight of highlights" [attr.data-icon]="highlight.icon">
+			<div class="feature__icon" aria-hidden="true"></div>
+			<h3>{{ highlight.title }}</h3>
+			<p>{{ highlight.description }}</p>
+		</article>
+	</div>
+</section>
+
+<section class="split" id="story">
+	<div class="split__content">
+		<h3>Nuestra misión y visión</h3>
+		<p>
+			Trabajamos para que cada persona pueda acceder a un empleo digno mediante una experiencia digital inclusiva,
+			transparente y en constante innovación. Visualizamos una red que impacte positivamente a Popayán y escale a Colombia.
+		</p>
+		<ul class="split__list">
+			<li *ngFor="let objective of objectives">{{ objective }}</li>
+		</ul>
+		<button type="button" class="button button--link" (click)="scrollTo('testimonials')">Conoce nuestro impacto</button>
+	</div>
+	<div class="split__media" role="presentation">
+		<div class="split__media-overlay">
+			<h4>Cómo lo hacemos posible</h4>
+			<ul>
+				<li *ngFor="let enabler of enablers">{{ enabler }}</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="parallax parallax--popayan-panorama" aria-hidden="true"></section>
+
+<section class="testimonials" id="testimonials">
+	<header class="section-heading">
+		<span>Impacto esperado</span>
+		<h2>Lo que el equipo proyecta para Job Opportunity</h2>
+	</header>
+	<div class="testimonials__grid">
+		<figure class="testimonial" *ngFor="let impact of impacts">
+			<blockquote>“{{ impact.quote }}”</blockquote>
+			<figcaption>
+				<strong>{{ impact.author }}</strong>
+			</figcaption>
+		</figure>
+	</div>
+</section>
+
+<section class="app-availability" id="apps">
+	<div class="app-availability__wrapper">
+		<div class="app-availability__copy">
+			<span class="app-availability__badge">Disponible en web y móvil</span>
+			<h2>Conecta con Job Opportunity desde cualquier dispositivo</h2>
+			<p>
+				Además de nuestra experiencia web, contamos con una aplicación móvil para Android que te permite postular a ofertas,
+				recibir notificaciones importantes y continuar tu proceso de formación desde donde estés.
+			</p>
+			<ul class="app-availability__list">
+				<li>Sincronización en tiempo real entre la versión web y nuestra app Android.</li>
+				<li>Notificaciones personalizadas para oportunidades y cursos relevantes.</li>
+				<li>Modo sin conexión para revisar vacantes guardadas cuando no tienes internet.</li>
+			</ul>
+			<div class="app-availability__actions">
+				<a class="store-button store-button--primary" href="#" role="button" aria-label="Descargar en Google Play">
+					<span class="store-button__icon" aria-hidden="true"></span>
+					<div class="store-button__text">
+						<small>Disponible en</small>
+						<strong>Google Play</strong>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="app-availability__preview" aria-hidden="true">
+			<div class="app-availability__device">
+				<div class="app-availability__screen">
+					<div class="app-availability__status">
+						<span class="app-availability__time">09:41</span>
+						<div class="app-availability__status-icons" aria-hidden="true">
+							<span class="icon icon--signal"></span>
+							<span class="icon icon--wifi"></span>
+							<span class="icon icon--battery"></span>
+						</div>
+					</div>
+					<div class="app-availability__header">
+						<div>
+							<span class="app-availability__app-name">Job Opportunity</span>
+							<small>Popayán</small>
+						</div>
+						<span class="app-availability__avatar" aria-hidden="true">JO</span>
+					</div>
+					<ul class="app-availability__feature-list">
+						<li class="is-active">
+							<div>
+								<span>Postulaciones activas</span>
+								<small>4 nuevas hoy</small>
+							</div>
+							<span class="toggle is-on" aria-hidden="true"></span>
+						</li>
+						<li>
+							<div>
+								<span>Alertas de capacitación</span>
+								<small>Próximo curso mañana</small>
+							</div>
+							<span class="toggle"></span>
+						</li>
+						<li>
+							<div>
+								<span>Seguimiento empresarial</span>
+								<small>2 empresas interesadas</small>
+							</div>
+							<span class="toggle"></span>
+						</li>
+						<li>
+							<div>
+								<span>Historial de entrevistas</span>
+								<small>Prepara tu próxima reunión</small>
+							</div>
+							<span class="toggle"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="cta" id="cta">
+	<div class="cta__content">
+		<h2>Lleva Job Opportunity a tu organización o comunidad</h2>
+		<p>
+			Sumemos esfuerzos para que cada persona en Popayán encuentre un empleo acorde a sus capacidades. La plataforma crece
+			junto a quienes la utilizan y se prepara para llegar a todo el país.
+		</p>
+		<div class="cta__actions">
+			<button type="button" class="button button--primary" (click)="onGetStarted()">Quiero registrarme</button>
+			<button type="button" class="button button--ghost" (click)="onSignIn()">Soy empresa</button>
+		</div>
+	</div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+	<div class="site-footer__inner">
+		<div>
+			<span class="site-footer__brand">Job Opportunity</span>
+			<p>Un espacio donde las ideas encuentran ritmo, estructura y emoción.</p>
+		</div>
+		<small class="site-footer__copyright">© 2025 Job Opportunity. Todos los derechos reservados.</small>
+	</div>
+</footer>

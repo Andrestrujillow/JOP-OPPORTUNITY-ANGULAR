@@ -1,10 +1,17 @@
+:root {
+	--app-surface-bg: radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.28), transparent 55%),
+		linear-gradient(180deg, #0f172a 0%, #020617 100%);
+}
+
 /* Reset global spacing to allow full-bleed layouts */
 html,
 body {
 	margin: 0;
 	padding: 0;
 	min-height: 100%;
-	background-color: #f4f4f7;
+	background: var(--app-surface-bg);
+	background-attachment: fixed;
+	color: #f8fafc;
 }
 
 body {
