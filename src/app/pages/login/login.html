@@ -36,7 +36,9 @@
 			</header>
 			<section class="auth-card__body">
 				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-					<div *ngIf="errorMessage" class="alert alert--error">{{ errorMessage }}</div>
+					@if (errorMessage) {
+						<div class="alert alert--error">{{ errorMessage }}</div>
+					}
 					<div class="social-buttons">
 						<button type="button" class="social-button">
 							<span class="social-icon">

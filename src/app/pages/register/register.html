@@ -11,8 +11,12 @@
 			</header>
 			<section class="auth-card__body">
 				<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-					<div *ngIf="errorMessage" class="alert alert--error">{{ errorMessage }}</div>
-					<div *ngIf="successMessage" class="alert alert--success">{{ successMessage }}</div>
+					@if (errorMessage) {
+						<div class="alert alert--error">{{ errorMessage }}</div>
+					}
+					@if (successMessage) {
+						<div class="alert alert--success">{{ successMessage }}</div>
+					}
 					<div class="social-buttons">
 						<button type="button" class="social-button">
 							<span class="social-icon">

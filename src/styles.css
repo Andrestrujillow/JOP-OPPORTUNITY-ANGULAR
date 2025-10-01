@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
+	/* tipografía base */
+	--font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+	/* superficie de aplicación */
 	--app-surface-bg: radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.28), transparent 55%),
 		linear-gradient(180deg, #0f172a 0%, #020617 100%);
+
+	/* COLORES UNIFICADOS - Sistema consistente global */
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--text-muted: #64748b;
+	--text-white: #ffffff;
+	--text-white-soft: rgba(255, 255, 255, 0.92);
+	--accent-blue: #2563eb;
+	--accent-blue-hover: #1d4ed8;
+	--accent-cyan: #06b6d4;
 }
 
 /* Reset global spacing to allow full-bleed layouts */
@@ -12,11 +28,14 @@ body {
 	background: var(--app-surface-bg);
 	background-attachment: fixed;
 	color: #f8fafc;
+	overflow-x: hidden;
+	max-width: 100vw;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
+	font-family: var(--font-sans);
 }
 
 /* optional subtle dark overlay so glass card stands out */
@@ -25,4 +44,65 @@ body {
 app-root {
 	flex: 1;
 	display: block;
+	overflow-x: hidden;
+	max-width: 100vw;
+}
+
+/* Protección adicional contra scroll horizontal */
+* {
+	box-sizing: border-box;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Términos legales globales - Estilo consistente */
+.auth-legal {
+	font-size: 0.88rem;
+	color: var(--text-white-soft);
+	text-align: center;
+	max-width: 720px;
+	position: relative;
+	z-index: 1;
+	line-height: 1.5;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.auth-legal a {
+	color: var(--text-white);
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	background: linear-gradient(135deg, #60a5fa, var(--accent-blue));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: none;
+}
+
+.auth-legal a::after {
+	content: '';
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: var(--accent-blue);
+	transition: width 0.3s ease;
+}
+
+.auth-legal a:hover {
+	background: linear-gradient(135deg, #93c5fd, #60a5fa);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	transform: translateY(-1px);
+	filter: brightness(1.1);
+}
+
+.auth-legal a:hover::after {
+	width: 100%;
 }

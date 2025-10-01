@@ -84,8 +84,8 @@
 .app-shell__content--auth {
 	justify-content: center;
 	align-items: center;
-	padding: clamp(12px, 4vw, 28px);
-	background: radial-gradient(circle at 10% 20%, #f8fafc 0%, #eef2ff 45%, #f1f5f9 100%);
+	padding: 0;
+	background: transparent;
 }
 
 .auth-wrapper {
@@ -113,6 +113,6 @@
 	}
 
 	.app-shell__content--auth {
-		padding: clamp(16px, 6vw, 32px);
+		padding: 0;
 	}
 }
