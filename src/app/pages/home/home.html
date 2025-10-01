@@ -1,0 +1,81 @@
+<section class="home-hero" aria-labelledby="home-hero-title" id="hero">
+	<div class="home-container home-hero__inner">
+		<header class="home-hero__header">
+			<span class="home-hero__badge">Job Opportunity · Plataforma laboral</span>
+			<h1 id="home-hero-title">Impulsa tu carrera profesional desde Popayán</h1>
+			<p>
+				Conecta con oportunidades, aliados empresariales y formación especializada creada para el talento del Cauca y
+				Colombia.
+			</p>
+		</header>
+		<div class="home-hero__actions" role="group" aria-label="Acciones principales">
+			<button type="button" class="home-button home-button--primary" (click)="onScrollTo('categories')">
+				Explorar empleos
+				<span aria-hidden="true" class="home-button__icon">→</span>
+			</button>
+			<button type="button" class="home-button home-button--ghost" (click)="onScrollTo('categories')">
+				Descubrir servicios
+			</button>
+		</div>
+		<div class="home-hero__scroll" aria-hidden="true">
+			<span>Scroll</span>
+			<span class="home-hero__mouse"></span>
+		</div>
+	</div>
+</section>
+
+<section class="home-section home-section--surface" id="categories">
+	<div class="home-container home-container--bounded">
+		<header class="home-section__header">
+			<h2>Una plataforma integral para crecer profesionalmente</h2>
+			<p>
+				Gestiona tus postulaciones, promueve servicios y desarrolla nuevas habilidades sin salir de Job Opportunity.
+			</p>
+		</header>
+		<div class="home-category-grid">
+			<article
+				class="category-card"
+				*ngFor="let category of categories"
+			>
+				<span class="category-card__icon" [class]="'category-card__icon category-card__icon--' + category.icon" aria-hidden="true"></span>
+				<div class="category-card__body">
+					<h3>{{ category.title }}</h3>
+					<p>{{ category.description }}</p>
+				</div>
+				<button type="button" class="category-card__cta" (click)="onScrollTo(category.target)">
+					{{ category.cta }}
+					<span aria-hidden="true">→</span>
+				</button>
+			</article>
+		</div>
+	</div>
+</section>
+
+<section class="home-section home-section--stats" id="metrics">
+	<div class="home-container home-container--bounded">
+		<ul class="stats-grid" aria-label="Estadísticas destacadas de la plataforma">
+			<li class="stat-card" *ngFor="let stat of stats">
+				<strong>{{ stat.value }}</strong>
+				<span>{{ stat.label }}</span>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="home-section home-section--cta" id="cta">
+	<div class="home-container home-container--bounded home-cta">
+		<header class="home-cta__content">
+			<h2>¿Listo para activar oportunidades en tu ciudad?</h2>
+			<p>
+				Súmate a Job Opportunity y construyamos juntos un ecosistema laboral justo, accesible y conectado para todo el
+				territorio.
+			</p>
+		</header>
+		<div class="home-cta__actions">
+			<button type="button" class="home-button home-button--primary">Publicar una oferta</button>
+			<button type="button" class="home-button home-button--ghost" (click)="onScrollTo('hero')">
+				Regresar al inicio
+			</button>
+		</div>
+	</div>
+</section>

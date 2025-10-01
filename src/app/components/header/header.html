@@ -1,0 +1,31 @@
+<header class="site-header" role="banner">
+	<div class="site-header__container">
+		<button
+			type="button"
+			class="brand"
+			(click)="onNavigate('landing')"
+			aria-label="Ir al inicio"
+		>
+			<span class="brand__mark" aria-hidden="true">JO</span>
+			<span class="brand__name">Job Opportunity</span>
+		</button>
+		<nav class="site-nav" aria-label="Navegación principal">
+			<button
+				type="button"
+				class="site-nav__link"
+				(click)="onNavigate(item.view)"
+				*ngFor="let item of navItems"
+				[ngClass]="{ 'is-active': isActive(item.view), 'is-cta': item.cta }"
+				[attr.aria-current]="isActive(item.view) ? 'page' : null"
+			>
+				{{ item.label }}
+			</button>
+		</nav>
+		<div class="site-header__actions">
+			<button type="button" class="site-header__cta" (click)="onNavigate('home')">
+				Explorar empleos
+				<span aria-hidden="true">→</span>
+			</button>
+		</div>
+	</div>
+</header>

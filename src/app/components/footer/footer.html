@@ -1,0 +1,40 @@
+<footer class="site-footer" role="contentinfo">
+	<div class="site-footer__container">
+		<section class="site-footer__brand">
+			<h2 class="site-footer__title">
+				<span class="site-footer__mark" aria-hidden="true">JO</span>
+				Job Opportunity
+			</h2>
+			<p class="site-footer__copy">
+				Conectamos al talento del suroccidente colombiano con empleadores, servicios profesionales y rutas de
+				formación para impulsar el desarrollo local.
+			</p>
+		</section>
+		<section class="site-footer__links">
+			<h3>Explora</h3>
+			<ul>
+				<li *ngFor="let item of quickLinks">
+					<span aria-hidden="true" class="emoji">{{ item.icon }}</span>
+					{{ item.label }}
+				</li>
+			</ul>
+		</section>
+		<section class="site-footer__links">
+			<h3>Soporte</h3>
+			<ul>
+				<li *ngFor="let link of supportLinks">{{ link.label }}</li>
+			</ul>
+		</section>
+		<section class="site-footer__contact">
+			<h3>Contacto</h3>
+			<p>Popayán, Cauca</p>
+			<p>
+				<a href="mailto:hola@jobopportunity.co">hola@jobopportunity.co</a>
+			</p>
+			<p>+57 300 000 0000</p>
+		</section>
+	</div>
+	<div class="site-footer__bottom">
+		<p>© {{ currentYear }} Job Opportunity. Todos los derechos reservados.</p>
+	</div>
+</footer>

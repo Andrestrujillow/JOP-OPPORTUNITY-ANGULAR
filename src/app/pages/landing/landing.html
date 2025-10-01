@@ -12,7 +12,7 @@
 				<li>Alcance inicial: Popayán con proyección a una red nacional de oportunidades.</li>
 			</ul>
 			<div class="hero__actions">
-				<button type="button" class="button button--primary" (click)="onGetStarted()">Explorar oportunidades</button>
+				<button type="button" class="button button--primary" (click)="onExplore()">Explorar oportunidades</button>
 				<button type="button" class="button button--ghost" (click)="onSignIn()">Acceder como empresa</button>
 			</div>
 		</div>
@@ -39,11 +39,13 @@
 		</p>
 	</header>
 	<div class="features__grid">
-		<article class="feature" *ngFor="let highlight of highlights" [attr.data-icon]="highlight.icon">
+		@for (highlight of highlights; track highlight.title) {
+		<article class="feature" [attr.data-icon]="highlight.icon">
 			<div class="feature__icon" aria-hidden="true"></div>
 			<h3>{{ highlight.title }}</h3>
 			<p>{{ highlight.description }}</p>
 		</article>
+		}
 	</div>
 </section>
 <section class="split" id="story">
@@ -54,7 +56,9 @@
 			transparente y en constante innovación. Visualizamos una red que impacte positivamente a Popayán y escale a Colombia.
 		</p>
 		<ul class="split__list">
-			<li *ngFor="let objective of objectives">{{ objective }}</li>
+			@for (objective of objectives; track objective) {
+			<li>{{ objective }}</li>
+			}
 		</ul>
 		<button type="button" class="button button--link" (click)="scrollTo('testimonials')">Conoce nuestro impacto</button>
 	</div>
@@ -62,7 +66,9 @@
 		<div class="split__media-overlay">
 			<h4>Cómo lo hacemos posible</h4>
 			<ul>
-				<li *ngFor="let enabler of enablers">{{ enabler }}</li>
+				@for (enabler of enablers; track enabler) {
+				<li>{{ enabler }}</li>
+				}
 			</ul>
 		</div>
 	</div>
@@ -74,12 +80,14 @@
 		<h2>Lo que el equipo proyecta para Job Opportunity</h2>
 	</header>
 	<div class="testimonials__grid">
-		<figure class="testimonial" *ngFor="let impact of impacts">
+		@for (impact of impacts; track impact.author) {
+		<figure class="testimonial">
 			<blockquote>“{{ impact.quote }}”</blockquote>
 			<figcaption>
 				<strong>{{ impact.author }}</strong>
 			</figcaption>
 		</figure>
+		}
 	</div>
 </section>
 <section class="app-availability" id="apps">
@@ -172,12 +180,3 @@
 		</div>
 	</div>
 </section>
-<footer class="site-footer" role="contentinfo">
-	<div class="site-footer__inner">
-		<div>
-			<span class="site-footer__brand">Job Opportunity</span>
-			<p>Un espacio donde las ideas encuentran ritmo, estructura y emoción.</p>
-		</div>
-		<small class="site-footer__copyright">© 2025 Job Opportunity. Todos los derechos reservados.</small>
-	</div>
-</footer>

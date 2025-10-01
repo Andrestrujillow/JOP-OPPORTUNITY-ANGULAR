@@ -1,15 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './landing.html',
   styleUrl: './landing.css'
 })
 export class LandingComponent {
-  @Output() readonly switchView = new EventEmitter<'login' | 'register'>();
+  @Output() readonly switchView = new EventEmitter<'login' | 'register' | 'home'>();
 
   protected readonly highlights = [
     {
@@ -59,6 +60,10 @@ export class LandingComponent {
 
   onGetStarted(): void {
     this.switchView.emit('register');
+  }
+
+  onExplore(): void {
+    this.switchView.emit('home');
   }
 
   onSignIn(): void {
